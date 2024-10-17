@@ -1,0 +1,56 @@
+---
+title: "Social Media Menace - Milestone4"
+author: "Maya Darski & Julia Martin"
+date: "2024-10-15"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## From the "Social Media Menace" dataset
+
+# Get libraries and upload dataset:
+```{r}
+library(tidyverse)
+
+sm_menace <- read.csv("C:/Users/marin/Downloads/archive/Time-Wasters on Social Media.csv")
+```
+
+# One way table:
+(one categorical variable)
+```{r}
+ct_table = table(sm_menace$ConnectionType)
+ct_table
+```
+
+# Two way table:
+(two categorical variables)
+```{r}
+gp_table = table(sm_menace$Profession, sm_menace$Gender)
+gp_table
+```
+
+# Discussion:
+For ct_table, we see that the people who use Mobile data is more than double that of those who use Wifi.
+For the gp_table, it's hard to read and tell for sure, but it looks like there's generally more males than Females or Others. No other information can be derived from looking at the table alone. 
+
+# Bar Graph
+(one categorical variable)
+```{r}
+ggplot(sm_menace, aes(x = ConnectionType, fill = ConnectionType)) +
+  geom_bar()
+```
+
+# Bar Graph
+(two categorical variables)
+```{r}
+ggplot(sm_menace, aes(x = Profession, fill = Gender)) +
+  geom_bar()
+```
+
+# Discuss
+As for the first bar graph (one variable), we just made a basic bar graph and assigned Gender to the x axis for ease of readability. We added colors to help that readability, and because it seems fancy. 
+For the second graph (two variables), we chose to try assigning each value to the x value and fill, and then decided on having Profession be x and Gender be fill because it was much easier to read and understand. 
+
